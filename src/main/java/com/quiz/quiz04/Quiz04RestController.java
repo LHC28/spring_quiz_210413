@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.quiz.quiz04.bo.StoreBO;
 import com.quiz.quiz04.model.Store;
 
-@RestController
+@RestController // @Controller + @ResponseBody
 public class Quiz04RestController {
 	// http://localhost/lesson02/quiz01
 	
