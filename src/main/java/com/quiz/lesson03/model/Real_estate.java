@@ -10,7 +10,7 @@ public class Real_estate {
 	private int area;
 	private String type;
 	private int price;
-	private Integer rentPrice;
+	private Integer rentPrice; // null이 들어갈 수 있기 때문에 int로 넣으면 0이 들어가 null이 구현되지 않는다. 따라서 Integer로 해야 한다.
 	private Date createdAt;
 	private Date updatedAt;
 	public int getId() {

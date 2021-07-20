@@ -4,7 +4,8 @@
  
  <mapper namespace="com.quiz.lesson03.real_estatedao.Real_estateDAO">
  	<select id="selectReal_estate" parameterType="map" resultType="com.quiz.lesson03.model.Real_estate">
- 		SELECT
+ 		SELECT <!-- *로 가져오게 된다면 real server(지금 서비스가 되고 있는 서버)에서 모든 db를 가져오려고 할 것이다. -->
+ 				<!-- 여기서 real DB에 없는 것을 가져오려고 시도할 수도 있다. 따라서 *을 사용하지 않고 필드를 모두 명시해주는 것이 원칙이다. -->
  			`id`
  			,`realtorId`
  			,`address`
@@ -19,9 +20,81 @@
  		WHERE
  			<!-- 1번 `id`= #{id} -->
  			<!-- `rentPrice` = #{rentPrice} -->
- 			`area` &gt; #{area}
+ 			type='매매'
+ 			AND `area` &gt; #{area}
  			AND `price` &lt; #{price}
+ 			<!-- <![CTATA[여기에 대상]] 이걸 사용하면 부등호 사용이 가능하다. -->
  		ORDER BY
  			`createdAt` DESC
+ 			<!-- 등록일과 id는 거의 의미가 같기 때문에 대개 id로 정렬한다고 한다. -->
  	</select>
+ 	<!-- 여러 개면 select문을 여러 개 만들면 된다. -->
+ 	
+ 	<!-- quiz02 insert문 -->
+ 	<insert id="insertReal_estate" parameterType="com.quiz.lesson03.model.Real_estate">
+ 		INSERT INTO `real_estate`
+ 		(
+ 			`realtorId`
+ 			,`address`
+ 			,`area`
+ 			,`type`
+ 			,`price`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{realtorId}
+ 			,#{address}
+ 			,#{area}
+ 			,#{type}
+ 			,#{price}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<insert id="insertRealestateAsField" parameterType="map">
+ 		INSERT INTO `real_estate`
+ 		(
+ 			`realtorId`
+ 			,`address`
+ 			,`area`
+ 			,`type`
+ 			,`price`
+ 			,`rentPrice`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{realtorId}
+ 			,#{address}
+ 			,#{area}
+ 			,#{type}
+ 			,#{price}
+ 			,#{rentPrice}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	
+ 	<update id="updateRealestate" parameterType="map">
+ 		UPDATE `real_estate`
+ 		SET
+ 			`price` = #{price}
+ 			,`type` = #{type}
+ 			,`updatedAt` = NOW()
+ 		WHERE
+ 			`id` = #{id}
+ 	</update>
+ 	
+ 	<delete id="deleteRealestate" parameterType="int">
+ 		DELETE
+ 		FROM
+ 			`real_estate`
+ 		WHERE
+ 			`id`=#{id}
+ 	</delete>
+ 	
  </mapper>
