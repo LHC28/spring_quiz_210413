@@ -27,7 +27,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// jsp를 위한 문법 추가
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	implementation 'javax.servlet:jstl:1.2'
+	implementation 'javax.servlet:jstl:1.2' // 이 두 가지로 jstl을 사용할 수 있는 것이다.
 }
 
 test {

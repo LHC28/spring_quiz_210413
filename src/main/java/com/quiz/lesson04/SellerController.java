@@ -21,7 +21,7 @@ public class SellerController {
 
 	// 주소 url : http://localhost/lesson04/quiz01/1
 	@RequestMapping(path="/1", method=RequestMethod.GET)
-	public String addSellerView() {
+	public String addSellerView() { // StringViewResolver가 시작되어 jsp를 가져온다.
 		return "lesson04/addSeller";
 	}
 	
@@ -40,6 +40,7 @@ public class SellerController {
 	public String getLastSeller(
 			@RequestParam(value="id", required=false) Integer id,
 			Model model) {
+		// 보통 여기서 if문을 활용한다.
 		Seller seller = sellerBO.getLastSeller(id);
 		model.addAttribute("title", "판매자 정보");
 		model.addAttribute("result", seller);
