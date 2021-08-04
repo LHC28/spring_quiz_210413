@@ -9,4 +9,20 @@
  		from
  			`store`
  	</select>
+ 	
+	<select id="selectStoreListById" resultType="com.quiz.lesson05.model.NewReview">
+ 		SELECT
+ 			`id`
+ 			,`storeId`
+ 			,`menu`
+ 			,`userName`
+ 			,`point`
+ 			,`review`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`new_review`
+ 		WHERE
+ 			`storeId` = 1
+ 	</select>
  </mapper>

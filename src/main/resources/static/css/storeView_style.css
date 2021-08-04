@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+header {height:130px; background-color:rgb(18,163,184)}
+.title{height:140px;}
+.list{height:180px; border: 2px solid rgb(18,163,184);  border-radius: 10px 10px 10px 10px;}
+footer {border-top: 1px solid rgb(225,225,225);}
+.footerFont {color:rgb(225,225,225); font-size:25px; font-weight:500;}

@@ -32,11 +32,12 @@
  		)
  		VALUES
  		(
- 			`#{date}`
- 			,`#{weather}
- 			,`#{preciptitation}`
- 			,`#{microDust}`
- 			,`#{windSpeed}`
+ 			#{date}
+ 			,#{weather}
+ 			,#{temperature}
+ 			,#{preciptitation}
+ 			,#{microDust}
+ 			,#{windSpeed}
  			,NOW()
  			,NOW()
  		)

@@ -27,7 +27,7 @@
 				<div class="mt-3">
 					<ul class="nav flex-column">
 						<li class ="nav-item text-white"><b>날씨</b><a href="#" class="nav-link"></a></li>
-						<li class ="nav-item text-white"><b>날씨입력</b><a href="#" class="nav-link"></a></li>
+						<li class ="nav-item text-white"><b>날씨입력</b><a href="/lesson05/quiz05/addWeather" class="nav-link"></a></li>
 						<li class ="nav-item text-white"><b>테마날씨</b><a href="#" class="nav-link"></a></li>
 						<li class ="nav-item text-white"><b>관측 기후</b><a href="#" class="nav-link"></a></li>
 					</ul>
@@ -37,18 +37,18 @@
 				<h3>날씨 입력</h3>
 				<form method="post" action="/lesson05/quiz05/addWeather">
 					<div class="d-flex align-items-center">
-						날짜<input type="text" id="dp" name="date" class="form-control col-2">
+						날짜<input type="text" id="date" name="date" class="form-control col-2">
 						날씨<select name="weather" class="form-control col-2">
-							<option value="맑음" selected>맑음</option>
-							<option value="구름조금">구름조금</option>
-							<option value="흐림">흐림</option>
-							<option value="비">비</option>
+							<option value="1" selected>맑음</option>
+							<option value="2">구름조금</option>
+							<option value="3">흐림</option>
+							<option value="4">비</option>
 						</select>
 						미세먼지<select name="microDust" class="form-control col-2">
-							<option valule="좋음" selected>좋음</option>
-							<option valule="보통">보통</option>
-							<option valule="나쁨">나쁨</option>
-							<option valule="최악">최악</option>
+							<option value="1" selected>좋음</option>
+							<option value="2">보통</option>
+							<option value="3">나쁨</option>
+							<option value="4">최악</option>
 						</select>
 						
 					</div>
@@ -73,27 +73,14 @@
 		</footer>
 	</div>
 	<script>
-		$(document).ready(function(){
-			$.datepicker.setDefaults({ // 모든 datepicker의 요일을 한글로 변경, 설정
-                dateFormat: 'yymmdd',
-                prevText: '이전 달',
-                nextText: '다음 달',
-                monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-                dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-                dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                showMonthAfterYear: true,
-                yearSuffix: '년'
-                ,currentText:"오늘" // 'Today' 버튼을 한글로 '오늘'이라고 표현
-            });
-			
-			$('#dp').datepicker({
-                dateFormat: 'yy년 mm월 dd일'
-                
-            });
-			
-		})
+	$(document).ready(function() {
+
+		$('#date').datepicker({
+			changeMonth : true, // 월 셀렉트 박스 
+			changeYear : true, // 년 셀렉트 박스 
+			dateFormat : "yy-mm-dd", // 표시 포멧 
+		});
+	});
 	</script>
 </body>
 </html>

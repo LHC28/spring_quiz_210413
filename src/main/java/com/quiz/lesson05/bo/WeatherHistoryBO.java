@@ -21,7 +21,7 @@ public class WeatherHistoryBO {
 		return weatherHistoryDAO.selectWeather();
 	}
 	
-	public void addWeather(Date date, String weather, String microDust, double temperature, double preciptitation, double windSpeed) {
+	public void addWeather(String date, String weather, String microDust, double temperature, double preciptitation, double windSpeed) {
 		weatherHistoryDAO.addWeather(date, weather, microDust, temperature, preciptitation, windSpeed);
 	}
 }

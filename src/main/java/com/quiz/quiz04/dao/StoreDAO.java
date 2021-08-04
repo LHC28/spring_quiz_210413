@@ -10,4 +10,5 @@ import com.quiz.quiz04.model.Store;
 public interface StoreDAO {
 
 	public List<Store> selectStoreList();
+	public List<Store> selectStoreListById(int storeId, String storeName);
 }
