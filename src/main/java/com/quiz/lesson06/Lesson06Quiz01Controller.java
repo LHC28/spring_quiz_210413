@@ -58,4 +58,15 @@ public class Lesson06Quiz01Controller {
 		result.put("is_duplication", isDuplication);
 		return result;
 	}
+	
+	@RequestMapping("/lesson06/quiz02/delete_url")
+	@ResponseBody // RestController를 사용하면 view에서 문제가 생김
+	public String deleteUrl(
+			@RequestParam("url_id") int id
+			) {
+		// DB id로 delete
+		int deletedRow = urlGroupBO.deleteUrlById(id);
+		// 결과 행이 1이면 성공, 아니면 실패
+		return deletedRow == 1 ? "success" : "fail";
+	}
 }

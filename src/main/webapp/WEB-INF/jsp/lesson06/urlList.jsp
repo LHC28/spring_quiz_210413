@@ -28,13 +28,48 @@
 			<tbody>
 				<c:forEach var="url" items="${urlGroup}" varStatus="status">
 				<tr>
-					<td>${status.count}</td>
+					<td>${url.id}</td>
 					<td>${url.name}</td>
 					<td>${url.url }</td>
+					<td><button type="button" class="url-btn btn btn-danger" data-url-id="${url.id}">삭제</button></td>
+					<%-- 여기서 id값을 사용하게 되면 반복되서 만들어지는 것으로 id가 중복이 된다. --%>
+					<%-- data-변수명 변수명에 들어오는 것은 아무거나 상관없다. --%>
 				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	<script>
+		$(document).ready(function(e){
+			// 해당 행의 id값을 가져올 방법을 찾아야 한다.
+			// $('td').on('click','button[name=delBtn]',function(e))
+			// name의 경우 중복되어도 문제 없음. 클릭된 부분만 가져오도록 하는 방식
+			// 	let id = $(this).attr('value'); 위에서 value에 id값을 넣는 방식
+			
+			<%-- 두 번째 방법 - data를 이용해서 태그에 data를 임시 저장해놓기 - 많이 사용한다고 한다. --%>
+			// 태그 : data-favorite-id	data- 이름설정
+			// 스크립트 : $(this).data('favorite-id')
+			$('.url-btn').on('click',function(e){
+				let urlId = $(this).data('url-id');
+				// alert(urlId);
+				$.ajax({
+					type:'post'
+					,data:{'url_id':urlId}
+					,url:'/lesson06/quiz02/delete_url'
+					,success : function(data){
+						//alert(data);
+						if(data=='success'){
+							location.reload(); //새로고침
+						}else{
+							alert("서버에서 삭제 처리를 하지 못했습니다. 관리자에게 문의해주세요.")
+						}
+					}, error: function(e) {
+						alert("error:" + e);
+					}
+				});
+			});
+			
+		});
+	</script>
 </body>
 </html>

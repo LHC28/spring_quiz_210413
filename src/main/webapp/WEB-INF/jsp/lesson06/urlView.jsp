@@ -10,6 +10,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="/css/main_page_style.css">
 </head>
 <body>
 	<div class="container">
@@ -23,6 +24,7 @@
 			<button type="button" id="urlCheckBtn" class="btn btn-info">중복확인</button>
 		</div>
 		<div id="statusUrl"></div>
+		<%--<small id="isDuplicationText" class="text-danger" d-non>중복된 url입니다.</small> --%>
 		<br>
 		<input type="button" class="btn btn-success btn-block" id="addBtn" value="추가">
 	</div>
@@ -77,8 +79,11 @@
 					, data:{'urlCheck':urlCheck}
 					, url:'/lesson06/quiz01/is_duplication'
 					,success : function(data){
-						if(data.is_duplication === true){
+						if(data.is_duplication === true){ // 중복인 경우
 							$('#statusUrl').append("<small class=\"text-danger\">중복된 url입니다.</small>");
+							// $('#isDuplicationText').removeClass('d-non') - 셀렉터는 괄호안에 들어갈 땐 안 쓴다 생각하자
+							// $('#availableUrlText').addClass('d-none');
+							// 위와 같은 방법도 존재한다.
 						}else{
 							$('#statusUrl').append("<small class=\"text-success\">저장 가능한 url입니다.</small>");
 						}

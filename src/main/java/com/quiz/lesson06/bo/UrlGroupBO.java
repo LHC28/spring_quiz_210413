@@ -27,4 +27,8 @@ public class UrlGroupBO {
 	public boolean existUrlGroupByName(String urlCheck) {
 		return urlGroupDAO.existUrlGroupByName(urlCheck);
 	}
+	
+	public int deleteUrlById(int id) {
+		return urlGroupDAO.urlGroupDAOById(id);
+	}
 }

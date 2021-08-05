@@ -39,4 +39,11 @@
 		WHERE
 			`url` = #{urlCheck}
  	</select>
+ 	<delete id="urlGroupDAOById">
+ 		DELETE
+ 		FROM
+ 			`urlgroup`
+ 		WHERE
+ 			`id` = #{id}
+ 	</delete>
  </mapper>

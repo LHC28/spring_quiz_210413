@@ -1,0 +1,36 @@
+@charset "UTF-8";
+#wrap {width: 1200px;margin: auto;} /* container도 가능하다. container사용할 경우 가로 크기는 정해져있다. margin이 들어가는 것은 감안해야한다. */
+
+header{width: 1200px; height: 100px; color: rgb(105, 105, 105); font-size: 40px;}
+
+nav {width: 1200px; height: 50px; background-color: rgb(198, 138, 18);}
+.navFont{font-size: 20px; color: white;}
+.navFont:hover{text-decoration: none; color: white; background-color: sienna; padding-bottom: 12px;}
+/* f12로 보면 padding이 들어가 있어 수치를 조정하였다. */
+
+.picture{ width: 1200px; height: 500px;}
+
+.contents{width: 1200px; height: 300px;}
+.content1{width: 400px; height: 300px; background-color:rgb(161, 82, 44);}
+.content1Font{color: white; font-size: 45px; font-weight: 100;}
+/* 100 ~ 700까지 두께를 선택할 수 있다. */
+
+.content2{width: 500px; height: 300px; background-color: rgb(209, 106, 30);}
+.hide2{display: none;}
+.content2-1 {width: 130px; height: 50px; color: white; font-size: 25px;}
+.content2-2 {width: 200px; height: 50px;}
+.content2-2Font{color: white;}
+.content2-3{width: 200px; height: 50px; color: white;}
+.inputSize{height: 40px;}
+.btnBox {width: 430px; height: 50px;}
+.btnFont{font-size: 30px; color: white; background-color: green;}
+
+.content3 {width: 300px; height: 300px; background-color: rgb(161, 82, 44);}
+.content3-1 {width: 180px; height: 150px;}
+.content3-1Font{color: white; font-size: 25px;}
+.content3-2Font{color: white; font-size: 40px;}
+
+footer{width: 1200px; height: 100px;}
+.footerFont {font-size: 10px; color: dimgrey;}
+
+.formBox {width:1200px; height:100px;}
