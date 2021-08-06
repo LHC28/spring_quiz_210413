@@ -2,6 +2,10 @@
 #wrap {width: 1200px;margin: auto;} /* container도 가능하다. container사용할 경우 가로 크기는 정해져있다. margin이 들어가는 것은 감안해야한다. */
 
 header{width: 1200px; height: 100px; color: rgb(105, 105, 105); font-size: 40px;}
+.headerFont :link{color: black; text-decoration: none !important;}
+.headerFont :visited{color: black; text-decoration: none !important;}
+.headerFont :hover{color: black; text-decoration: none !important;}
+.headerFont :active{color: black; text-decoration: none !important;}
 
 nav {width: 1200px; height: 50px; background-color: rgb(198, 138, 18);}
 .navFont{font-size: 20px; color: white;}
@@ -34,3 +38,6 @@ footer{width: 1200px; height: 100px;}
 .footerFont {font-size: 10px; color: dimgrey;}
 
 .formBox {width:1200px; height:100px;}
+
+.inputBox {width:500px; height:450px;}
+.inputBox1 {width:1200px; height:450px;}

@@ -23,4 +23,38 @@
 		WHERE
 			`id` = #{id}
 	</delete>
+	<insert id="addBooking" parameterType="map">
+		INSERT INTO `booking`
+			(
+			`name`
+			,`date`
+			,`day`
+			,`headcount`
+			,`phoneNumber`
+			,`createdAt`
+			,`updatedAt`
+			)
+		VALUES
+			(
+			#{name}
+			,#{date}
+			,#{day}
+			,#{headcount}
+			,#{phoneNumber}
+			,NOW()
+			,NOW()
+			)
+	</insert>
+	<select id="selectBookingListByName" parameterType="map" resultType="com.quiz.lesson07.model.Booking">
+		SELECT
+			`name`
+			,`date`
+			,`headcount`
+			,`day`
+			,`state`
+		FROM
+			`booking`
+		WHERE
+			`name` = #{name} and `phoneNumber`= #{phoneNumber}
+	</select>
 </mapper>

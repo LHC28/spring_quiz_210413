@@ -17,19 +17,8 @@
 </head>
 <body>
 	<div id="wrap">
-		<header class="d-flex align-items-center justify-content-center"> <!-- header 안의 div 정렬하기 -->
-			<div>
-				통나무 팬션 <!-- class에서 display-?를 활용하면 크기를 조절할 수 있다. -->
-			</div>
-		</header>
-		<nav>
-			<ul class="nav nav-fill">
-				<li class="nav-item"><a href="#" class="nav-link navFont font-weight-bold">펜션소개</a></li>
-				<li class="nav-item"><a href="#" class="nav-link navFont font-weight-bold">객실보기</a></li>
-				<li class="nav-item"><a href="#" class="nav-link navFont font-weight-bold">예약안내</a></li>
-				<li class="nav-item"><a href="#" class="nav-link navFont font-weight-bold">커뮤니티</a></li>
-			</ul>
-		</nav>
+		<jsp:include page="header.jsp"/>
+		<jsp:include page="nav.jsp"/>
 		<div>
 			<div class="formBox d-flex justify-content-center align-items-center">
 				<h2 class="test-center"><b>예약 목록 보기</b></h2>
@@ -54,13 +43,26 @@
 						<td>${booking.day}</td>
 						<td>${booking.headcount}</td>
 						<td>${booking.phoneNumber}</td>
-						<td>${booking.state}</td>
+						<td>
+							<c:choose>
+								<c:when test="${booking.state eq '확정' }">
+									<span class="text-success">${booking.state }</span>
+								</c:when>
+								<c:when test="${booking.state eq '대기중' }">
+									<span class="text-info">${booking.state }</span>
+								</c:when>
+								<c:when test="${booking.state eq '취소' }">
+									<span class="text-danger">${booking.state }</span>
+								</c:when>
+							</c:choose>
+						</td>
 						<td><button type="button" class="bookingBtn btn btn-danger" data-booking-id="${booking.id}">삭제</button></td>
 					</tr>
 				</tbody>
 				</c:forEach>
 			</table>
 		</div>
+		<jsp:include page="footer.jsp"/>
 	</div>
 	
 	<script>
